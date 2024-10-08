@@ -19,4 +19,8 @@ router.get('/new', (req, res) => {
     res.render('foods/new.ejs')
 })
 
+router.delete('/:pantryId', (req, res) => {
+    
+})
+
 module.exports = router;
