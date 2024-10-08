@@ -30,7 +30,7 @@ app.use(
 app.use(passUserToView)
 app.use('/auth', authController);
 app.use(isSignedIn);
-app.use('/users/:userId/foods',foodsController);
+app.use('/users/:userId/foods', foodsController);
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
@@ -45,9 +45,6 @@ app.get('/vip-lounge', (req, res) => {
     res.send('Sorry, no guests allowed.');
   }
 });
-
-app.use('/auth', authController);
-app.use('/users/:userId/foods',foodsController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

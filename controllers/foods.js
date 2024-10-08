@@ -13,8 +13,7 @@ router.get('/', async (req, res) => {
         console.log(error)
         res.redirect('/')
     }
-    
-})
+}) // this route is not working
 
 router.get('/new', (req, res) => {
     res.render('foods/new.ejs')
