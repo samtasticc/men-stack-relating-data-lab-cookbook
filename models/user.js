@@ -7,12 +7,12 @@ const foodSchema = new mongoose.Schema({
   },
   perishable: {
     type: String,
-    enum: ['Yes', 'No'],
+    enum: ['yes', 'no'],
     required: true,
   },
   category: {
     type: String,
-    enum: ['Bakery', 'Beverages', 'Dairy', 'Deli', 'Pantry', 'Produce', 'Protein', 'Snacks'],
+    enum: ['bakery', 'beverages', 'dairy', 'deli', 'pantry', 'produce', 'protein', 'snacks'],
     required: true,
   }
 })
