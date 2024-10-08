@@ -7,17 +7,15 @@
 </head>
 <body>
     <h1>Add a new Item!</h1>
-    <%- include('./partials/_navbar.ejs') %>
-    <form action="" method="">
+    <%- include('../partials/_navbar.ejs') %>
+    <form action="/users/<%= user._id %>/new" method="POST">
         <label for="food">Food:</label>
         <input type="text" name="food" id="food">
-
         <label for="perishable">Perishable:</label>
         <select id="perishable" name="perishable">
             <option value="none">Make a selection</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
-
         <label for="category">Category:</label>
         <select id="category" name="category">
             <option value="none">Make a selection</option>
