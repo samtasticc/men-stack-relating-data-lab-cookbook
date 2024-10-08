@@ -19,8 +19,16 @@ router.get('/new', (req, res) => {
     res.render('foods/new.ejs')
 })
 
-router.delete('/:pantryId', (req, res) => {
-    
+router.delete('/:pantryId', async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.session.user._id)
+        currentUser.foods.id(req.params.foodsId).deleteOne()
+        await currentUser.save()
+        res.re(`/users/${currentUser._id}/foods`)
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
 })
 
 module.exports = router;
