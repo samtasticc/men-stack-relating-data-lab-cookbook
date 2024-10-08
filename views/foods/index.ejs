@@ -8,5 +8,13 @@
   <body>
     <h1>Welcome to my Pantry</h1>
     <%- include('../partials/_navbar.ejs') %>
+    <% if(foods.forEach((foods)=>{ %>
+        <a href="/users/<%= user._id %>/foods/<%= foods._id %>">
+          <li><%= foods.food</li>
+        </a>
+    <% }else{ %>
+        <p>There are no items in this pantry</p>
+    <% })) %>
+      
   </body>
 </html>
