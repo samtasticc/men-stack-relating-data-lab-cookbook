@@ -11,11 +11,16 @@
     <form action="/users/<%= user._id %>/foods" method="POST">
         <label for="food">Food:</label>
         <input type="text" name="food" id="food">
+        <br>
+        <br>
         <label for="perishable">Perishable:</label>
         <select id="perishable" name="perishable">
             <option value="none">Make a selection</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
+        </select>
+        <br>
+        <br>
         <label for="category">Category:</label>
         <select id="category" name="category">
             <option value="none">Make a selection</option>
@@ -26,6 +31,9 @@
             <option value="pantry">Pantry</option>
             <option value="produce">Produce</option>
             <option value="snacks">Snacks</option>
+        </select>
+        <br>
+        <br>
         <button type="submit">Add to your pantry</button>
     </form>
 </body>
