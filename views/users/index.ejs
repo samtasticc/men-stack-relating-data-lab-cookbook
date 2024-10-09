@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Page</title>
+</head>
+<body>
+    <h1>Welcome to the Community Page</h1>
+    <%- include('../partials/_navbar.ejs') %>
+    <% allUsers.forEach((user) => { %>
+        <div>
+          <a href="/users/<%= user._id %>/users/<%= user._id %>">
+            <li><%= user.username %></li>
+          </a>
+      </div>
+      <% }) %>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcom to </h1>
+    <%- include('../partials/_navbar.ejs') %>
+    <% if (user.pantry.length > 0) { %>
+        <% user.pantry.forEach((item) => { %>
+          <div>
+              <li><%= item.food %></li>
+        </div>
+        <% }) %>
+     <% } else { %>
+      <p>There are no items in this pantry</p>
+     <% } %>
+</body>
+</html>
