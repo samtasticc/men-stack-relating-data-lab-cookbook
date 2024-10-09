@@ -49,6 +49,8 @@ app.use('/auth', authController);
 app.use(isSignedIn);
 const foodsController = require('./controllers/foods.js'); 
 app.use('/users/:userId/foods', foodsController); 
+const usersController = require('./controllers/users.js')
+app.use('/users/:userId/users', usersController)
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
