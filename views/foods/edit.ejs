@@ -8,7 +8,7 @@
 <body>
     <h1>Edit an Item!</h1>
     <%- include('../partials/_navbar.ejs') %>
-    <form action="/users/<%= user._id %>/foods/<% item._id %>>_method=PUT" method="POST">
+    <form action="/users/<%= user._id %>/foods/<%= pantry._id %>?_method=PUT" method="POST">
         <label for="food">Food:</label>
         <input type="text" name="food" id="food" value="<%= pantry.food %>">
         <br>
@@ -34,7 +34,7 @@
         </select>
         <br>
         <br>
-        <button type="submit">Add to your pantry</button>
+        <button type="submit">Update your pantry</button>
     </form>
 </body>
 </html>

@@ -19,11 +19,11 @@ router.get('/new', (req, res) => {
     res.render('foods/new.ejs')
 })
 
-// This route will render a page that displays a form to edit a specific food item in the user’s pantry.
-router.get('/:foodsId/edit', async (req, res) => { // In controllers/foods.js, create an edit route.
+router.get('/:foodsId/edit', async (req, res) => { 
     try {
-        const currentUser = await User.findById(req.session.user._id) // Look up the user from req.session
+        const currentUser = await User.findById(req.session.user._id) 
         const editFood = currentUser.pantry.id(req.params.foodsId)
+        console.log(editFood)
         res.render('foods/edit.ejs', {
             pantry: editFood
         })
@@ -33,26 +33,26 @@ router.get('/:foodsId/edit', async (req, res) => { // In controllers/foods.js, c
     }
 })
 
-// This route will create new foods in the embedded pantry array on the user model.
+
 router.post('/', async (req, res) => {
     try {
-        const currentUser = await User.findById(req.session.user._id) // Look up the user from req.session
-        currentUser.pantry.push(req.body) // Push req.body (the new form data object) to the pantry array of the current user.
-        await currentUser.save() // Save changes to the user.
-        res.redirect(`/users/${currentUser._id}/foods`) // Redirect back to the application’s index view.
+        const currentUser = await User.findById(req.session.user._id) 
+        currentUser.pantry.push(req.body) 
+        await currentUser.save() 
+        res.redirect(`/users/${currentUser._id}/foods`) 
     } catch (error){
         console.log(error)
-        res.redirect('/') // If any errors, log them and redirect back home /.
+        res.redirect('/') 
     }
 })
 
 router.put('/:foodsId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
-        const updateFood = currentUser.pantry.id(req.params.foodsId)
-        food.set(req.body) 
+        const updateFood = currentUser.pantry.id(req.params.foodsId) // does foodsId need to be pantryId?
+        updateFood.set(req.body) 
         await currentUser.save()
-        res.redirect(`/users/${currentUser._id}/foods/${req.params.foodsId}`)
+        res.redirect(`/users/${currentUser._id}/foods`)
     } catch (error) {
         res.redirect('/')
     }
