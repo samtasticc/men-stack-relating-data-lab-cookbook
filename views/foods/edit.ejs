@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit an Item!</title>
+</head>
+<body>
+    <h1>Edit an Item!</h1>
+    <%- include('../partials/_navbar.ejs') %>
+    <form action="/users/<%= user._id %>/foods/<% item._id %>>_method=PUT" method="POST">
+        <label for="food">Food:</label>
+        <input type="text" name="food" id="food" value="<%= pantry.food %>">
+        <br>
+        <br>
+        <label for="perishable">Perishable:</label>
+        <select id="perishable" name="perishable">
+            <option value="none" <%= pantry.perishable === 'none' ? 'selected' : '' %>>Make a selection</option>
+            <option value="yes" <%= pantry.perishable === 'yes' ? 'selected' : '' %>>Yes</option>
+            <option value="no" <%= pantry.perishable === 'no' ? 'selected' : '' %>>No</option>
+        </select>
+        <br>
+        <br>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="none" <%= pantry.category === 'none' ? 'selected' : '' %>>Make a selection</option>
+            <option value="bakery" <%= pantry.category === 'bakery' ? 'selected' : '' %>>Bakery</option>
+            <option value="beverages" <%= pantry.category === 'beverages' ? 'selected' : '' %>>Beverages</option>
+            <option value="dairy" <%= pantry.category === 'dairy' ? 'selected' : '' %>>Dairy</option>
+            <option value="deli" <%= pantry.category === 'deli' ? 'selected' : '' %>>Deli</option>
+            <option value="pantry" <%= pantry.category === 'pantry' ? 'selected' : '' %>>Pantry</option>
+            <option value="produce" <%= pantry.category === 'produce' ? 'selected' : '' %>>Produce</option>
+            <option value="snacks" <%= pantry.category === 'snacks' ? 'selected' : '' %>>Snacks</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit">Add to your pantry</button>
+    </form>
+</body>
+</html>

@@ -17,9 +17,9 @@
           <form action="/users/<%= user._id %>/foods/<%= item._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete</button>
           </form>
-          <a href="/users/<%= user._id %>/foods/<%= item._id %>/edit">
+          <form action="/users/<%= user._id %>/foods/<%= item._id %>/edit" method="POST">
             <button type="submit">Edit</button>
-          </a>
+          </form>
       </div>
       <% }) %>
    <% } else { %>

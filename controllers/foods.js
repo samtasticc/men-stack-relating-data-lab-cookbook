@@ -46,6 +46,18 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.put('/:foodsId', async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.session.user._id)
+        const updateFood = currentUser.pantry.id(req.params.foodsId)
+        food.set(req.body) 
+        await currentUser.save()
+        res.redirect(`/users/${currentUser._id}/foods/${req.params.foodsId}`)
+    } catch (error) {
+        res.redirect('/')
+    }
+})
+
 router.delete('/:foodsId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
