@@ -19,7 +19,19 @@ router.get('/new', (req, res) => {
     res.render('foods/new.ejs')
 })
 
-
+// This route will render a page that displays a form to edit a specific food item in the user’s pantry.
+router.get('/:foodsId/edit', async (req, res) => { // In controllers/foods.js, create an edit route.
+    try {
+        const currentUser = await User.findById(req.session.user._id) // Look up the user from req.session
+        const editFood = currentUser.pantry.id(req.params.foodsId)
+        res.render('foods/edit.ejs', {
+            pantry: editFood
+        })
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+})
 
 // This route will create new foods in the embedded pantry array on the user model.
 router.post('/', async (req, res) => {
